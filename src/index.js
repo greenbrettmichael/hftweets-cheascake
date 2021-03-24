@@ -43,7 +43,6 @@ function generateTweets(context) {
     };
 
     xhr.open("POST", "https://5a4ism7d0h.execute-api.us-east-1.amazonaws.com/dev/qa", true);
-    xhr.setRequestHeader('Content-Type', 'application/json');
     xhr.send(JSON.stringify({
         context: context,
         numGen: 10
