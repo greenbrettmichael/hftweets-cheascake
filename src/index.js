@@ -1,4 +1,5 @@
 var loading = false;
+var warmupTries = 0;
 
 function clearTweets() {
     let tweetList = document.getElementById("list-tweets");
@@ -64,3 +65,37 @@ function processRandom() {
     }
     generateTweets("");
 }
+
+function warmup() {
+    var xhr = new XMLHttpRequest();
+
+    xhr.onreadystatechange = function () {
+        
+        if (this.readyState != 4) {
+            return;
+        }
+
+        warmupTries++;
+        if (this.status == 200) {
+            document.body.classList.add("loaded");
+        }
+        else {
+            if(warmupTries < 3) {
+                warmup();
+            }
+            else {
+                document.body.innerText = "Website is down";
+            }
+        }
+    };
+
+    xhr.open("POST", "https://5a4ism7d0h.execute-api.us-east-1.amazonaws.com/dev/qa", true);
+    xhr.send(JSON.stringify({
+        context: "",
+        numGen: 1
+    }));
+}
+
+document.addEventListener('DOMContentLoaded', function(event) {
+	warmup();
+});

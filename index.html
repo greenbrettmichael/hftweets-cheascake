@@ -8,7 +8,14 @@
 </head>
 
 <body>
-    <main>
+    <div id="loader-wrapper">
+        <div id="loader"></div>
+
+        <div class="loader-section section-left"></div>
+        <div class="loader-section section-right"></div>
+
+    </div>
+    <div id="content">
         <h1>What Would Cheascake Say?</h1>
         <div>
             <input type="text" id="input-context" name="input-context" alt="prompt for generation">
@@ -19,7 +26,7 @@
             </ul>
             <img id="loading-tweets" src="src/loading.gif" alt="loading gif" style="display: none;">
         </div>
-    </main>
+    </div>
     <script src="src/index.js"></script>
 </body>
 
