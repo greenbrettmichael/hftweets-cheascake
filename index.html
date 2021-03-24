@@ -11,12 +11,13 @@
     <main>
         <h1>What Would Cheascake Say?</h1>
         <div>
-            <input type="text" id="input-context" name="input-context">
+            <input type="text" id="input-context" name="input-context" alt="prompt for generation">
             <button type="button" id="btn-context" onclick="processContext()">🤔 Prompt Results</button>
             <button type="button" id="btn-random" onclick="processRandom()">😈 I'm Feeling Lucky</button>
             <ul id="list-tweets">
 
             </ul>
+            <img id="loading-tweets" src="src/loading.gif" alt="loading gif" style="display: none;">
         </div>
     </main>
     <script src="src/index.js"></script>
